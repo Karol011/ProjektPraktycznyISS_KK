@@ -12,8 +12,8 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "astronaut")
-@Table
+@Entity
+@Table(name = "astronaut")
 public class Astronaut {
 
     @Column(name = "astronaut_id")

@@ -11,8 +11,8 @@ import javax.persistence.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "station_speed")
-@Table
+@Entity
+@Table(name = "station_speed")
 public class StationSpeed {
 
     @Column(name = "station_speed_id")

@@ -13,8 +13,8 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "station")
-@Table
+@Entity
+@Table(name = "station")
 public class Station {
 
     @Column(name = "station_id")
