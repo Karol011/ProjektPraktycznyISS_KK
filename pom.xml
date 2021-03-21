@@ -3,32 +3,41 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
     <groupId>org.example</groupId>
     <artifactId>ProjektPraktycznyISS_KK</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>Projekt praktyczny Stacja Kosmiczna ISS</name>
-    <description>Sledzenie stacji kosmicznej ISS</description>
-
     <properties>
-        <java.version>11</java.version>
-        <hibernate.version>5.4.28.Final</hibernate.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
-
-    <dependency>
-        <groupId>mysql</groupId>
-        <artifactId>mysql-connector-java</artifactId>
-        <version>8.0.22</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate.validator</groupId>
-        <artifactId>hibernate-validator</artifactId>
-        <version>7.0.0.Final</version>
-    </dependency>
-    <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-envers</artifactId>
-        <version>${hibernate.version}</version>
-    </dependency>
+    <dependencies>
+        <!-- DATABASE  -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.4.29.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.22</version>
+        </dependency>
+        <!-- UTIL -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.18</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.8.6</version>
+        </dependency>
+        <dependency>
+            <groupId>com.squareup.okhttp3</groupId>
+            <artifactId>okhttp</artifactId>
+            <version>4.9.1</version>
+        </dependency>
+    </dependencies>
 </project>
