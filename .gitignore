@@ -3,6 +3,7 @@
 
 # Log file
 *.log
+hibernate-karol.cfg.xml
 
 # BlueJ files
 *.ctxt
