@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import external.entity.Astronaut;
+import lombok.*;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -12,12 +13,16 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
-
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class AstronautClient {
 
-    private OkHttpClient okHttpClient;
+    private OkHttpClient okHttpClient = new OkHttpClient();
 
-    public Astronaut getAstronautsForADate(LocalDateTime time) {
+    public AstronautTable getAstronautsForADate() {
         Request request = new Request.Builder()
                 .url("http://api.open-notify.org/astros.json")
                 .build();
@@ -25,7 +30,7 @@ public class AstronautClient {
             Response response = okHttpClient.newCall(request).execute();
             if (response.isSuccessful()) {
                 String json = response.body().string();
-                return new Gson().fromJson(json, Astronaut.class);
+                return new Gson().fromJson(json, AstronautTable.class);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,26 +38,7 @@ public class AstronautClient {
         return null;
     }
 
-    public String getJsonElement() {
-        Gson gson = new Gson();
 
-        Request request = new Request.Builder()
-                .url("http://api.open-notify.org/astros.json")
-                .build();
-        try {
-            Response response = okHttpClient.newCall(request).execute();
-            if (response.isSuccessful()) {
-                String json = response.body().string();
-
-                JsonObject jsonObject = gson.fromJson(json, JsonObject.class);
-                String keyElement = getJsonElement(jsonObject, "number");
-
-                return new Gson().fromJson(json, Astronaut.class);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
 
     }
-}
