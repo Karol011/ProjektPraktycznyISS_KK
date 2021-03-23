@@ -1,18 +1,12 @@
 package external.client;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import external.entity.Astronaut;
 import lombok.*;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor

@@ -51,7 +51,7 @@
         <mapping class="external.entity.Station"/>
         <mapping class="external.entity.StationPosition"/>
         <mapping class="external.entity.StationSpeed"/>
-        <mapping class="external.entity.Astronaut"/>
+        <mapping class="external.entity.People"/>
 
     </session-factory>
 </hibernate-configuration>
