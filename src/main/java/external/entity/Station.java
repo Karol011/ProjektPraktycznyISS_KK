@@ -26,10 +26,10 @@ public class Station {
     @JoinColumn(name = "station_position_id")
     private Set<StationPosition> positions = new HashSet<>();
     @OneToMany
-    @JoinColumn(name = "astronaut_id")
-    private Set<Astronaut> astronauts = new HashSet<>();
+    @JoinColumn(name = "people_id")
+    private Set<People> people = new HashSet<>();
     @OneToMany
     @JoinColumn(name = "station_speed_id")
-    private Set<Astronaut> speeds = new HashSet<>();
+    private Set<People> speeds = new HashSet<>();
 
 }

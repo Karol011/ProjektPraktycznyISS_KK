@@ -13,19 +13,17 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "astronaut")
-public class Astronaut {
+@Table(name = "people")
+public class People {
 
-    @Column(name = "astronaut_id")
+    @Column(name = "people_id")
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @Column
     private LocalDateTime time;
     @Column
     private String name;
-    @Column
-    private String surname;
     @ManyToOne
     private Station station;
 
