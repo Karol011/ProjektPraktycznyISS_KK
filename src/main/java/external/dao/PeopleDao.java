@@ -3,13 +3,14 @@ package external.dao;
 
 import external.connection.HibernateUtil;
 import external.entity.People;
+import lombok.ToString;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import java.util.List;
 import java.util.Set;
-
+@ToString
 public class PeopleDao {
 
     public Set<People> findByName(String name) {

@@ -7,18 +7,22 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Scanner;
+
 public class Main {
+    private static Station station = new Station();
+    private static PeopleClient peopleClient = new PeopleClient();
+    private static PeopleDto peopleDto = new PeopleDto();
+    private static PeopleDao peopleDao = new PeopleDao();
+
     public static void main(String[] args) {
-
-
-        PeopleClient peopleClient = new PeopleClient();
-        PeopleDto peopleDto = peopleClient.getAstronautsForADate();
-        PeopleDao peopleDao = new PeopleDao();
+        peopleDto = peopleClient.getAstronautsForADate();
         peopleDao.saveAll(peopleDto.getPeople());
-
-        Station station = new Station();
         station.setId(1);
         station.setName("namaaaaeee");
+
+        System.out.println(
+                peopleDto);
 
 
         Transaction transaction = null;
@@ -31,6 +35,53 @@ public class Main {
             transaction.rollback();
         }
 
+       // greetUser();
+
+    }
+
+    public static void greetUser() {
+        System.out.println("Witaj w projekcie prezentujacym wybrane dane i statystyki na podstawie open-notify.org API\n" +
+                " wybierz operacje:\n" +
+                "1. oblicz predkosc ISS\n" +
+                "2. Zwracanie listy nadchodzących przebiegów ISS dla określonej lokalizacji\n" +
+                "3. Zwracanie liczby osób przebywających w kosmosie w ramach ISS\n" +
+                "4. Zwracanie średniej prędkości w określonym fragmencie czasu, np. miesiąc, rok\n" +
+                "5. ile razy ISS znajdowało się nad daną lokalizacją w przedziale czasu\n" +
+                "6. liczbę osób przebywających w ramach misji kosmicznej na ISS\n" +
+                "0. wyjscie z aplikacji\n");
+        displayMenu();
+    }
+
+    private static void displayMenu() {
+        Scanner scanner = new Scanner(System.in);
+        char choice = scanner.next().charAt(0);
+        while (!Character.isDigit(choice)) {
+            System.out.println("Niewlasciwy wybor, prosze uzyc odpowiedniej cyfry");
+            greetUser();
+        }
+        switch (choice) {
+            case '1':
+                System.out.println("W trakcie tworzenia...");
+                break;
+            case '2':
+                System.out.println("W trakcie tworzenia...");
+                break;
+            case '3':
+                System.out.println(peopleDto.getPeople());
+                break;
+            case '4':
+                System.out.println("W trakcie tworzenia...");
+                break;
+            case '5':
+                System.out.println("W trakcie tworzenia...");
+                break;
+            case '6':
+                System.out.println("W trakcie tworzenia...");
+                break;
+            case '0':
+
+
+        }
     }
 
 }
