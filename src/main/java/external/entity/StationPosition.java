@@ -26,5 +26,6 @@ public class StationPosition {
     @Column
     private double latitude;
     @ManyToOne
+    @JoinColumn(name = "station_id")
     private Station station;
 }

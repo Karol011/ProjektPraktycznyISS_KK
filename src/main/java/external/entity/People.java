@@ -4,9 +4,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -21,10 +21,10 @@ public class People {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column
-    private LocalDateTime time;
-    @Column
     private String name;
     @ManyToOne
+    @JoinColumn(name = "station_id")
+    @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Station station;
 
 

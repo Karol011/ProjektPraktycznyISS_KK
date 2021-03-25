@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -22,14 +23,15 @@ public class Station {
     private int id;
     @Column
     private String name;
-    @OneToMany
-    @JoinColumn(name = "station_position_id")
+    @OneToMany(mappedBy = "station")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<StationPosition> positions = new HashSet<>();
-    @OneToMany
-    @JoinColumn(name = "people_id")
+    @OneToMany(mappedBy = "station")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<People> people = new HashSet<>();
-    @OneToMany
-    @JoinColumn(name = "station_speed_id")
+    @OneToMany(mappedBy = "station")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
     private Set<People> speeds = new HashSet<>();
+
 
 }
