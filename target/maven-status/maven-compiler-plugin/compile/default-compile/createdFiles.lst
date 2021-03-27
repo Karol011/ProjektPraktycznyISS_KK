@@ -1,0 +1,12 @@
+external\client\PeopleDto.class
+service\PeopleService.class
+external\entity\People.class
+external\entity\StationSpeed.class
+external\entity\Station.class
+external\client\StationClient.class
+Main.class
+external\connection\HibernateUtil.class
+external\client\PeopleClient.class
+external\entity\StationPosition.class
+external\client\PeopleDto$PeopleDtoBuilder.class
+external\dao\PeopleDao.class
