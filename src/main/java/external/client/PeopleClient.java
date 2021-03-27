@@ -17,7 +17,7 @@ public class PeopleClient {
 
     private OkHttpClient okHttpClient = new OkHttpClient();
 
-    public PeopleDto getAstronautsForADate() {
+    public PeopleDto getCurrentPeopleInSpace() {
         PeopleDto peopleDto;
         Request request = new Request.Builder()
                 .url("http://api.open-notify.org/astros.json")
@@ -28,8 +28,6 @@ public class PeopleClient {
                 String json = response.body().string();
                 peopleDto = new Gson().fromJson(json, PeopleDto.class);
                 return PeopleDto.builder()
-                        .message(peopleDto.getMessage())
-                        .number(peopleDto.getNumber())
                         .people(peopleDto.getPeople())
                         .build();
             }
