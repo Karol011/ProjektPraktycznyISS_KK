@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -35,7 +36,7 @@ public class Main {
             transaction.rollback();
         }
 
-       // greetUser();
+        greetUser();
 
     }
 
@@ -67,7 +68,8 @@ public class Main {
                 System.out.println("W trakcie tworzenia...");
                 break;
             case '3':
-                System.out.println(peopleDto.getPeople());
+                Arrays.stream(peopleDto.getPeople())
+                .forEach(System.out::println);
                 break;
             case '4':
                 System.out.println("W trakcie tworzenia...");
