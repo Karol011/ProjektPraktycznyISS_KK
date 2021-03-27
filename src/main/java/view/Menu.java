@@ -1,3 +1,5 @@
+package view;
+
 import external.client.PeopleClient;
 import external.client.PeopleDto;
 import external.connection.HibernateUtil;
@@ -10,31 +12,12 @@ import org.hibernate.Transaction;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main {
-    private static Station station = new Station();
-    private static PeopleClient peopleClient = new PeopleClient();
-    private static PeopleDto peopleDto = new PeopleDto();
-    private static PeopleDao peopleDao = new PeopleDao();
+public class Menu {
+    private Station station = new Station();
+    private PeopleService peopleService = new PeopleService();
 
     public static void main(String[] args) {
-        peopleDto = peopleClient.getAstronautsForADate();
-        peopleDao.saveAll(peopleDto.getPeople());
-        station.setId(1);
-        station.setName("namaaaaeee");
 
-        System.out.println(
-                peopleDto);
-
-
-        Transaction transaction = null;
-
-        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            transaction = session.beginTransaction();
-            session.saveOrUpdate(station);
-            transaction.commit();
-        } catch (HibernateException hibernateException) {
-            transaction.rollback();
-        }
 
         greetUser();
 
@@ -68,8 +51,7 @@ public class Main {
                 System.out.println("W trakcie tworzenia...");
                 break;
             case '3':
-                Arrays.stream(peopleDto.getPeople())
-                .forEach(System.out::println);
+                peopleService.getCurrentPeopleInSpace().forEach(System.out::println);
                 break;
             case '4':
                 System.out.println("W trakcie tworzenia...");
