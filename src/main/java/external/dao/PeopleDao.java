@@ -8,8 +8,10 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
-import java.util.List;
+import java.util.stream.Collectors;
+
 import java.util.Set;
+
 @ToString
 public class PeopleDao {
 
@@ -22,6 +24,27 @@ public class PeopleDao {
             Set<People> people = (Set<People>) session.createQuery(query)
                     .setParameter("name", name)
                     .getResultList();
+            transaction.commit();
+
+            return people;
+
+        } catch (HibernateException e) {
+            if (transaction != null)
+                transaction.rollback();
+
+        }
+        return null;
+    }
+
+    public Set<People> findAll() {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            String query = "FROM People";
+
+            Set<People> people = (Set<People>) session.createQuery(query)
+                    .getResultStream()
+                    .collect(Collectors.toSet());
             transaction.commit();
 
             return people;
@@ -54,7 +77,6 @@ public class PeopleDao {
             for (int i = 0; i < people.length - 1; i++) {
                 session.save(people[i]);
             }
-            // session.save(people);
             transaction.commit();
         } catch (HibernateException e) {
             if (transaction != null)
@@ -75,5 +97,6 @@ public class PeopleDao {
 
         }
     }
+
 
 }

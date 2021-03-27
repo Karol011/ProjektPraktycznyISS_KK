@@ -1,20 +1,13 @@
 package view;
 
-import external.client.PeopleClient;
-import external.client.PeopleDto;
-import external.connection.HibernateUtil;
-import external.dao.PeopleDao;
 import external.entity.Station;
-import org.hibernate.HibernateException;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import service.PeopleService;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Menu {
     private Station station = new Station();
-    private PeopleService peopleService = new PeopleService();
+    private static PeopleService peopleService = new PeopleService();
 
     public static void main(String[] args) {
 
