@@ -27,5 +27,12 @@ public class People {
     @Cascade(org.hibernate.annotations.CascadeType.PERSIST)
     private Station station;
 
-
+    @Override
+    public String toString() {
+        return "People{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", station=" + station +
+                '}';
+    }
 }
