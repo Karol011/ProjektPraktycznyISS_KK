@@ -1,6 +1,7 @@
 package external.client;
 
 import com.google.gson.Gson;
+import external.dto.PeopleDto;
 import lombok.*;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

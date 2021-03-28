@@ -1,7 +1,7 @@
 package service;
 
 import external.client.PeopleClient;
-import external.client.PeopleDto;
+import external.dto.PeopleDto;
 import external.dao.PeopleDao;
 import external.entity.People;
 

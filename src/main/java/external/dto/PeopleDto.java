@@ -1,4 +1,4 @@
-package external.client;
+package external.dto;
 
 import external.entity.People;
 import lombok.*;

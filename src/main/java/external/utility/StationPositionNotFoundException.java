@@ -1,4 +1,4 @@
-package external.client;
+package external.utility;
 
 public class StationPositionNotFoundException extends RuntimeException {
     public StationPositionNotFoundException(String errorMessage) {

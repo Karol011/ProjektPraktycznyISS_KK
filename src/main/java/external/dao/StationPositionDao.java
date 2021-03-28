@@ -1,6 +1,6 @@
 package external.dao;
 
-import external.client.StationPositionNotFoundException;
+import external.utility.StationPositionNotFoundException;
 import external.connection.HibernateUtil;
 import external.entity.StationPosition;
 import lombok.ToString;
