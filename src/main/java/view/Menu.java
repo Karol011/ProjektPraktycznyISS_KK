@@ -2,12 +2,14 @@ package view;
 
 import external.entity.Station;
 import service.PeopleService;
+import service.StationPositionService;
 
 import java.util.Scanner;
 
 public class Menu {
     private Station station = new Station();
     private static PeopleService peopleService = new PeopleService();
+    private static StationPositionService stationPositionService = new StationPositionService();
 
     public static void main(String[] args) {
 
@@ -25,6 +27,7 @@ public class Menu {
                 "4. Zwracanie średniej prędkości w określonym fragmencie czasu, np. miesiąc, rok\n" +
                 "5. ile razy ISS znajdowało się nad daną lokalizacją w przedziale czasu\n" +
                 "6. liczbę osób przebywających w ramach misji kosmicznej na ISS\n" +
+                "7. obecne koordynaty stacji kosmicznej\n" +
                 "0. wyjscie z aplikacji\n");
         displayMenu();
     }
@@ -54,6 +57,9 @@ public class Menu {
                 break;
             case '6':
                 System.out.println("W trakcie tworzenia...");
+                break;
+            case '7':
+                System.out.println(stationPositionService.getCurrentPosition());
                 break;
             case '0':
 
