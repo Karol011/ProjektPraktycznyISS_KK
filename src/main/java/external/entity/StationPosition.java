@@ -22,10 +22,21 @@ public class StationPosition {
     @Column
     private LocalDateTime time;
     @Column
-    private double longtitude;
+    private double longitude;
     @Column
     private double latitude;
     @ManyToOne
     @JoinColumn(name = "station_id")
     private Station station;
+
+    @Override
+    public String toString() {
+        return "StationPosition{" +
+                "id=" + id +
+                ", time=" + time +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
+                ", station=" + station +
+                '}';
+    }
 }
