@@ -41,7 +41,7 @@ public class Menu {
         }
         switch (choice) {
             case '1':
-                System.out.println("W trakcie tworzenia...");
+                System.out.printf("Srednia predkosc iss %.2f metrów na sekundę",stationPositionService.getStationSpeed());
                 break;
             case '2':
                 System.out.println("W trakcie tworzenia...");
