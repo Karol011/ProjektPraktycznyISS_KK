@@ -24,9 +24,11 @@ public class StationPositionClient {
             if (response.isSuccessful()) {
                 String json = response.body().string();
                 stationPositionDto = new Gson().fromJson(json, StationPositionDto.class);
-                return StationPositionDto.builder()
+                stationPositionDto = StationPositionDto.builder()
                         .iss_position(stationPositionDto.getIss_position())
                         .build();
+                stationPositionDto.getIss_position().setTime(LocalDateTime.now());
+                return stationPositionDto;
             }
         } catch (IOException e) {
             e.printStackTrace();
