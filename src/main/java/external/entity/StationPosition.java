@@ -18,6 +18,7 @@ public class StationPosition {
 
     @Column(name = "station_position_id")
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private LocalDateTime time;
