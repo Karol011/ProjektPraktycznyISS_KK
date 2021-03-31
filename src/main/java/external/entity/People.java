@@ -15,7 +15,7 @@ public class People {
 
     @Column(name = "people_id")
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column
     private String name;
