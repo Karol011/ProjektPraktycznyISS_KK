@@ -38,11 +38,28 @@ public class StationPositionService {
         double lon2 = stationPositionDto.getIss_position().getLongitude();
         LocalDateTime timestampOfSecondPositionCheck = stationPositionDto.getIss_position().getTime();
         Duration duration = Duration.between(timestampOfFirstPositionCheck, timestampOfSecondPositionCheck);
-        return calculateDistanceBetweenTwoPoints(lat1, lon1, lat2, lon2) / duration.getSeconds();
+        try {
+            return calculateDistanceBetweenTwoPoints(lat1, lon1, lat2, lon2) / duration.getSeconds();
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return 0;
     }
 
     public double calculateDistanceBetweenTwoPoints(double lat1, double lon1, double lat2, double lon2) {
 // Convert degrees to radians
+        if (lat1 > 90 || lat1 < -90) {
+            throw new IllegalArgumentException("Incorrect value for first lattitude");
+        }
+        if (lat2 > 90 || lat2 < -90) {
+            throw new IllegalArgumentException("Incorrect value for second lattitude");
+        }
+        if (lon1 > 180 || lon1 < -180) {
+            throw new IllegalArgumentException("Incorrect value for first longitude");
+        }
+        if (lon2 > 180 || lon2 < -180) {
+            throw new IllegalArgumentException("Incorrect value for second longitude");
+        }
         lat1 = lat1 * Math.PI / 180.0;
         lon1 = lon1 * Math.PI / 180.0;
 
